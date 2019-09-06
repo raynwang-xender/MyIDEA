@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TestDao {
 
-    String TAG = "TestDao";
+    String TAG = TestDao.class.getSimpleName();
 
     void insert();
 }

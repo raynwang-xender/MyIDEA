@@ -20,7 +20,7 @@ public class TestController {
     @Autowired
     TestService testService;
 
-    private static String TAG = "TestController";
+    private static final String TAG = TestController.class.getSimpleName();
 
     @RequestMapping(value = "/test", method = {RequestMethod.POST, RequestMethod.GET})
     public void test(final HttpServletRequest request) {
