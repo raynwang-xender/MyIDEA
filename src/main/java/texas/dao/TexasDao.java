@@ -2,16 +2,20 @@ package texas.dao;
 
 
 import org.springframework.stereotype.Service;
+import texas.bean.Conf;
 import texas.bean.UserInfo;
 
 
-/**    ---Rayn insert select update delete count   */
+/**    ---Rayn insertUserInfo select update delete count   */
 
 @Service
 public interface TexasDao {
 
     String TAG = TexasDao.class.getSimpleName();
 
-    void insert(UserInfo userInfo);
+    void insertUserInfo(UserInfo userInfo);
 
+    UserInfo selectUserInfo(String openid);
+
+    Conf selectConf(String date);
 }

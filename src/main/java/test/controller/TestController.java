@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import test.service.TestService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 
 /**    ---Rayn add get   */
 
-@Controller
+
+/**    ---Rayn 这里写@RestController才会有返回值，@Controller没有返回   */
+@RestController
 public class TestController {
 
     /**    ---Rayn 这样注入会有警告，先这么写，以后再细节   */
