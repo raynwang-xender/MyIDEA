@@ -29,10 +29,12 @@ public class TexasController {
 
     @RequestMapping(value = "/test", method = {RequestMethod.POST, RequestMethod.GET})
     public void test(final HttpServletRequest request) {
+        System.out.println(TAG+"---Rayn userInfo:");
+    }
 
-        UserInfo userInfo = texasService.findUserInfo("op4n74h-hsa7qi_p7B5oYsOI85_E");
-        System.out.println(TAG+"---Rayn userInfo:"+userInfo);
-
+    @RequestMapping(value = "/test2", method = {RequestMethod.POST, RequestMethod.GET})
+    public void test2(final HttpServletRequest request) {
+        System.out.println(TAG+"---Rayn userInfo2:");
     }
 
     /**    ---Rayn 登录完就要过来存DB   */
@@ -89,5 +91,7 @@ public class TexasController {
         System.out.println(TAG+"---Rayn openid:"+openid);
         return openid;
     }
+
+
 
 }

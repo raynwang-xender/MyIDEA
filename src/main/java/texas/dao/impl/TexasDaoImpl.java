@@ -38,8 +38,11 @@ public class TexasDaoImpl implements TexasDao {
                 userInfo.getLanguage(),
         };
 
-        jdbcTemplate.update(SQL,parms);
+        try {
+            jdbcTemplate.update(SQL, parms);
+        }catch (Exception e){
 
+        }
     }
 
     @Override
