@@ -7,9 +7,4 @@
 *.iml
 out
 gen
-target/classes/META-INF/
-target/classes/test/config/RestTemplateConfig.class
-target/classes/texas/bean/Conf.class
-target/classes/texas/bean/Constant.class
-target/classes/texas/config/RestTemplateConfig.class
-target/generated-sources/
+target
