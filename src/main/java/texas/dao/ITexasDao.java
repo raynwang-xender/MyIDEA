@@ -9,9 +9,9 @@ import texas.bean.UserInfo;
 /**    ---Rayn insertUserInfo select update delete count   */
 
 @Service
-public interface TexasDao {
+public interface ITexasDao {
 
-    String TAG = TexasDao.class.getSimpleName();
+    String TAG = "TexasDao";
 
     void insertUserInfo(UserInfo userInfo);
 

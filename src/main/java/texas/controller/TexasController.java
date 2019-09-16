@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import texas.bean.Conf;
 import texas.bean.UserInfo;
-import texas.service.TexasService;
+import texas.service.ITexasService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +22,7 @@ public class TexasController {
     private static final String TAG = TexasController.class.getSimpleName();
 
     @Autowired
-    TexasService texasService;
+    ITexasService texasService;
 
     @Autowired
     UserInfo userInfo;

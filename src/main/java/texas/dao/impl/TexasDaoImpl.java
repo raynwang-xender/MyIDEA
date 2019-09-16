@@ -5,18 +5,16 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import texas.bean.Conf;
 import texas.bean.UserInfo;
-import texas.dao.TexasDao;
+import texas.dao.ITexasDao;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 
 /**    ---Rayn insertUserInfo select update delete count   */
 
 @Service
-public class TexasDaoImpl implements TexasDao {
+public class TexasDaoImpl implements ITexasDao {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

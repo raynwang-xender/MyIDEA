@@ -5,8 +5,8 @@ import org.springframework.web.client.RestTemplate;
 import texas.bean.Conf;
 import texas.bean.Constant;
 import texas.bean.UserInfo;
-import texas.dao.TexasDao;
-import texas.service.TexasService;
+import texas.dao.ITexasDao;
+import texas.service.ITexasService;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -17,9 +17,9 @@ import java.util.Date;
  */
 
 @Service
-public class TexasServiceImpl implements TexasService {
+public class TexasServiceImpl implements ITexasService {
     @Autowired
-    TexasDao texasDao;
+    ITexasDao texasDao;
 
     @Autowired
     RestTemplate restTemplate;
