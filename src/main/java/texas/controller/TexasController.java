@@ -88,7 +88,8 @@ public class TexasController {
         String session = texasService.findSession(code);
         JSONObject jsonObject = JSON.parseObject(session);
         String openid = (String) jsonObject.get("openid");
-        System.out.println(TAG+"---Rayn openid:"+openid);
+        String session_key = (String) jsonObject.get("session_key");
+        System.out.println(TAG+"---Rayn openid:"+openid+" session_key:"+session_key);
         return openid;
     }
 
