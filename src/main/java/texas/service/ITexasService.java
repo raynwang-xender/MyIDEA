@@ -25,4 +25,6 @@ public interface ITexasService {
     String findHavebuy(String openid);
 
     int saveWithdraw(String openid, String chip);
+
+    String findSettle();
 }

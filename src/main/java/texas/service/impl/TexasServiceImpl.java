@@ -83,8 +83,14 @@ public class TexasServiceImpl implements ITexasService {
     public int saveWithdraw(String openid, String chip) {
         Conf conf = findConf();
         String tbName = "tb_result_"+conf.getDate()+"_"+conf.getTimes();
-        texasDao.updateWithdraw(openid,chip,tbName);
-        return 0;
+        return texasDao.updateWithdraw(openid,chip,tbName);
+    }
+
+    @Override
+    public String findSettle() {
+        Conf conf = findConf();
+        String tbName = "tb_result_"+conf.getDate()+"_"+conf.getTimes();
+        texasDao.selectResult(tbName);
     }
 
 }

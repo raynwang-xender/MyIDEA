@@ -96,4 +96,13 @@ public class TexasController {
         String chip = request.getParameter("chip");
         return texasService.saveWithdraw(openid,chip) == 1;
     }
+
+    /**    ---Rayn 赎回，直接update，如果一次都没有买过，赎回按钮不可点击   */
+    @RequestMapping(value = "/settle", method = {RequestMethod.POST, RequestMethod.GET})
+    public void settle(final HttpServletRequest request) {
+
+        String settle = texasService.findSettle();
+    }
+
+
 }

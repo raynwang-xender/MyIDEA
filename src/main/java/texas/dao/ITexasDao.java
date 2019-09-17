@@ -26,4 +26,6 @@ public interface ITexasDao {
     String selectHavebuy(String openid, String tbName);
 
     int updateWithdraw(String openid, String chip,String tbName);
+
+    String selectResult(String tbName);
 }
