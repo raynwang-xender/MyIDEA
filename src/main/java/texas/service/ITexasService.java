@@ -12,7 +12,7 @@ public interface ITexasService {
 
     String TAG = "TexasService";
 
-    void saveUserInfo(UserInfo userInfo);
+    int saveUserInfo(UserInfo userInfo);
 
     UserInfo findUserInfo(String openid);
 
@@ -20,5 +20,9 @@ public interface ITexasService {
 
     String findSession(String code);
 
+    int saveResult(String openid);
 
+    String findHavebuy(String openid);
+
+    int saveWithdraw(String openid, String chip);
 }

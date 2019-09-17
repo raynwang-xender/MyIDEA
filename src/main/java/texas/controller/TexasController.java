@@ -32,11 +32,6 @@ public class TexasController {
         System.out.println(TAG+"---Rayn userInfo:");
     }
 
-    @RequestMapping(value = "/test2", method = {RequestMethod.POST, RequestMethod.GET})
-    public void test2(final HttpServletRequest request) {
-        System.out.println(TAG+"---Rayn userInfo2:");
-    }
-
     /**    ---Rayn 登录完就要过来存DB   */
     /**
      * Rayn
@@ -44,7 +39,7 @@ public class TexasController {
      * 2.
      */
     @RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
-    public void login(final HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String login(final HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         System.out.println(TAG+"---Rayn login");
         userInfo.setNickname(request.getParameter("nickName"));
         userInfo.setGender(request.getParameter("gender"));
@@ -62,10 +57,12 @@ public class TexasController {
 
         System.out.println(TAG+"---Rayn userInfo:"+userInfo);
 
-        texasService.saveUserInfo(userInfo);
+        if (texasService.saveUserInfo(userInfo) == 1){
+            return openid;
+        }
+        return null;
     }
 
-    /**    ---Rayn 获取每次游戏的参数   */
     /**
      * Rayn
      * 获取每次游戏的参数
@@ -75,24 +72,28 @@ public class TexasController {
      */
     @RequestMapping(value = "/conf", method = {RequestMethod.POST, RequestMethod.GET})
     public String conf(final HttpServletRequest request) {
-
         Conf conf = texasService.findConf();
         System.out.println(TAG+"---Rayn conf:"+conf.toString());
-
         return conf.toString();
     }
 
-    @RequestMapping(value = "/session", method = {RequestMethod.POST, RequestMethod.GET})
-    public String session(final HttpServletRequest request) {
-        String code = request.getParameter("code");
-        String session = texasService.findSession(code);
-        JSONObject jsonObject = JSON.parseObject(session);
-        String openid = (String) jsonObject.get("openid");
-        String session_key = (String) jsonObject.get("session_key");
-        System.out.println(TAG+"---Rayn openid:"+openid+" session_key:"+session_key);
-        return openid;
+    @RequestMapping(value = "/pay", method = {RequestMethod.POST, RequestMethod.GET})
+    public boolean pay(final HttpServletRequest request) {
+        String openid = request.getParameter("openid");
+        return texasService.saveResult(openid) == 1;
     }
 
+    @RequestMapping(value = "/havebuy", method = {RequestMethod.POST, RequestMethod.GET})
+    public String havebuy(final HttpServletRequest request) {
+        String openid = request.getParameter("openid");
+        return texasService.findHavebuy(openid);
+    }
 
-
+    /**    ---Rayn 赎回，直接update，如果一次都没有买过，赎回按钮不可点击   */
+    @RequestMapping(value = "/withdraw", method = {RequestMethod.POST, RequestMethod.GET})
+    public boolean withdraw(final HttpServletRequest request) {
+        String openid = request.getParameter("openid");
+        String chip = request.getParameter("chip");
+        return texasService.saveWithdraw(openid,chip) == 1;
+    }
 }

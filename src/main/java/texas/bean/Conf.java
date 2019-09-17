@@ -8,6 +8,8 @@ public class Conf {
     private String totalbuy;
     private String chip;
     private String money;
+    private String times;
+    private String enable;
 
     @Override
     public String toString() {
@@ -20,6 +22,10 @@ public class Conf {
                 .append(chip).append('\"');
         sb.append(",\"money\":\"")
                 .append(money).append('\"');
+        sb.append(",\"times\":\"")
+                .append(times).append('\"');
+        sb.append(",\"enable\":\"")
+                .append(enable).append('\"');
         sb.append('}');
         return sb.toString();
     }
