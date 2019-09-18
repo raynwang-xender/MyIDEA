@@ -97,11 +97,11 @@ public class TexasController {
         return texasService.saveWithdraw(openid,chip) == 1;
     }
 
-    /**    ---Rayn 赎回，直接update，如果一次都没有买过，赎回按钮不可点击   */
+    /**    ---Rayn 不是客户端调的，直接用浏览器调用，然后回显json就行   */
     @RequestMapping(value = "/settle", method = {RequestMethod.POST, RequestMethod.GET})
-    public void settle(final HttpServletRequest request) {
-
-        String settle = texasService.findSettle();
+    public String settle(final HttpServletRequest request) {
+        /**    ---Rayn 这个方法要把回显的json都拿到   */
+        return texasService.findSettle();
     }
 
 

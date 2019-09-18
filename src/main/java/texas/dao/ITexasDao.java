@@ -3,7 +3,10 @@ package texas.dao;
 
 import org.springframework.stereotype.Service;
 import texas.bean.Conf;
+import texas.bean.Result;
 import texas.bean.UserInfo;
+
+import java.util.List;
 
 
 /**    ---Rayn insert select update delete count   */
@@ -27,5 +30,5 @@ public interface ITexasDao {
 
     int updateWithdraw(String openid, String chip,String tbName);
 
-    String selectResult(String tbName);
+    List<Result> selectResult(String tbName);
 }

@@ -125,19 +125,11 @@ public class TexasDaoImpl implements ITexasDao {
 
     /**    ---Rayn 查询Result表的所有东西   */
     @Override
-    public String selectResult(String tbName) {
-        int theoryChip = 0;
-        int practiceChip = 0;
-        int totalbuy = 0;
+    public List<Result> selectResult(String tbName) {
         final String SQL = "select * from "+tbName;
         List<Result> list = jdbcTemplate.query(SQL, new BeanPropertyRowMapper<>(Result.class));
         if (null != list && list.size() > 0) {
-            for (Result result:list) {
-                totalbuy += Integer.parseInt(result.getHavebuy());
-                practiceChip += Integer.parseInt(result.getChip());
-            }
-
-//            theoryChip = totalbuy *
+            return list;
         }
         return null;
     }
