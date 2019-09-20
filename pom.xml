@@ -66,5 +66,16 @@
 
     </dependencies>
 
+    <!--加了这个才能打正确的包
+    而且不能同时有两个Application，否则jar包不知道从哪个main方法启动-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
