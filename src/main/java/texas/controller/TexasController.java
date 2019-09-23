@@ -28,8 +28,9 @@ public class TexasController {
     UserInfo userInfo;
 
     @RequestMapping(value = "/test", method = {RequestMethod.POST, RequestMethod.GET})
-    public void test(final HttpServletRequest request) {
+    public String test(final HttpServletRequest request) {
         System.out.println(TAG+"---Rayn userInfo:");
+        return texasService.findUserInfo("testid").toString();
     }
 
     /**    ---Rayn 登录完就要过来存DB   */

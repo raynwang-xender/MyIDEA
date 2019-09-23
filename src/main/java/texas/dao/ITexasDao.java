@@ -31,4 +31,5 @@ public interface ITexasDao {
     int updateWithdraw(String openid, String chip,String tbName);
 
     List<Result> selectResult(String tbName);
+
 }
